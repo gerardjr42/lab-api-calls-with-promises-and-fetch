@@ -37,18 +37,18 @@ function displayTrivia(response) {
     const button = document.createElement("button");
     button.innerText = "Show Answer"
     
+    let clicked = false;
     button.addEventListener("click", (e) => {
       e.preventDefault();
-      const answer = document.createElement("p");
-      // answer.classList.add("hidden")
-      answer.innerText = `${trivia[i].correct_answer}`
-      
-      article.append(answer);
-    })
-    
+      if(!clicked) {
+        const answer = document.createElement("p");
+        // answer.classList.add("hidden");
+        answer.innerText = `${trivia[i].correct_answer}`
+        article.append(answer);
+      }
+      clicked = true;  
+    }) 
     article.append(h2, p, button);
     document.querySelector("main").append(article);
   }
 };
-
-
